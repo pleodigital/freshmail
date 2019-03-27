@@ -1,0 +1,41 @@
+{
+    "name": "pleodigital/freshmail",
+    "description": "Connect your freshmail account to Craft CMS.",
+    "type": "craft-plugin",
+    "version": "1.0.0",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "freshmail"
+    ],
+    "support": {
+        "docs": "https://github.com/pleodigital/freshmail/blob/master/README.md",
+        "issues": "https://github.com/pleodigital/freshmail/issues"
+    },
+    "license": "MIT",
+    "authors": [{
+        "name": "Pleo Digital",
+        "homepage": "https://pleodigital.com/"
+    }],
+    "require": {
+        "craftcms/cms": "^3.0.0-RC1"
+    },
+    "autoload": {
+        "psr-4": {
+            "pleodigitalfreshmail\\freshmail\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "Freshmail",
+        "handle": "freshmail",
+        "hasCpSettings": true,
+        "hasCpSection": false,
+        "changelogUrl": "https://raw.pleodigital.com/pleodigital/freshmail/master/CHANGELOG.md",
+        "components": {
+            "freshmail": "pleodigitalfreshmail\\freshmail\\services\\Freshmail"
+        },
+        "class": "pleodigitalfreshmail\\freshmail\\Freshmail"
+    }
+}

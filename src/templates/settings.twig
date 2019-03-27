@@ -1,0 +1,34 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * Freshmail plugin for Craft CMS 3.x
+ *
+ * Freshmail Settings.twig
+ *
+ * @author    Pleo Digital
+ * @copyright Copyright (c) 2019 Pleo Digital
+ * @link      https://pleodigital.com/
+ * @package   Freshmail
+ * @since     1.0.0
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+
+{% do view.registerAssetBundle("pleodigitalfreshmail\\freshmail\\assetbundles\\freshmail\\FreshmailAsset") %}
+
+{{ forms.textField({
+    label: 'Api Key',
+    instructions: 'Your individual Api Key can be found in general settings in Freshmail control panel.',
+    id: 'apiKey',
+    name: 'apiKey',
+    value: settings['apiKey']})
+}}
+
+{{ forms.textField({
+    label: 'Api Secret Key',
+    instructions: 'Your individual Api Secret Key can be found in general settings in Freshmail control panel.',
+    id: 'apiSecretKey',
+    name: 'apiSecretKey',
+    value: settings['apiSecretKey']})
+}}

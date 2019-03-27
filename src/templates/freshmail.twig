@@ -1,0 +1,46 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * Freshmail plugin for Craft CMS 3.x
+ *
+ * Freshmail index.twig
+ *
+ * @author    Pleo Digital
+ * @copyright Copyright (c) 2019 Pleo Digital
+ * @link      https://pleodigital.com/
+ * @package   Freshmail
+ * @since     1.0.0
+ */
+#}
+
+{% extends "_layouts/cp" %}
+{% import "_includes/forms" as forms %}
+
+{% do view.registerAssetBundle("pleodigitalfreshmail\\freshmail\\assetbundles\\freshmail\\FreshmailAsset") %}
+{% do view.registerAssetBundle("pleodigitalfreshmail\\freshmail\\assetbundles\\freshmailcpsection\\FreshmailCPSectionAsset") %}
+
+{# Link for the ? icon at the bottom of the page #}
+{% set docsUrl = "https://github.com/pleodigital/freshmail/blob/master/README.md" %}
+
+{# The title of this CP section #}
+{% set title = "Freshmail" %}
+
+{# The URL to this plugin's base CP section #}
+{% set pluginCpUrl = url('freshmail') %}
+
+{# Get a URL to an image in our AssetBundle #}
+{% set iconUrl = view.getAssetManager().getPublishedUrl('@pleodigitalfreshmail/freshmail/assetbundles/freshmailcpsection/dist', true) ~ '/img/Freshmail-icon.svg' %}
+
+{# Content that should appear in the page header#}
+{% set extraPageHeaderHtml %}
+    <div class="buttons">
+        <a href="{{ pluginCpUrl }}" class="btn submit add icon">{{ "Click Me!"|t('freshmail') }}</a>
+    </div>
+{% endset %}
+
+{# The content of the CP Section#}
+{% set content %}
+    <h2>{{ "Freshmail CP Section body goes here"|t('freshmail') }}</h2>
+    <img src="{{ iconUrl }}" height="64" width="64" />
+    <p class="textline"></p>
+{% endset %}
