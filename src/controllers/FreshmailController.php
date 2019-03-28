@@ -57,7 +57,7 @@ class FreshmailController extends Controller
      *         The actions must be in 'kebab-case'
      * @access protected
      */
-    protected $allowAnonymous = ['index', 'do-something'];
+    protected $allowAnonymous = ['index'];
 
     // Public Methods
     // =========================================================================
@@ -94,7 +94,7 @@ class FreshmailController extends Controller
             Craft :: $app -> getSession() -> setNotice( 'freshmailAction' , Craft :: t( 'freshmail' , "Subscriber added") );
 
 		} catch (Exception $e) {
-            exit('<pre>' . print_r( $e , true ) . '</pre>');
+            Craft :: $app -> getSession() -> setError( Craft :: t( 'freshmail' , 'Connection with freshmail went wrong. Check plugin settings.' ));
 		}
 
     }
