@@ -89,6 +89,8 @@ class FreshmailController extends Controller
 
             if( isset( $response[ 'errors' ] ) ) {
                 Craft :: $app -> getSession() -> setError( Craft :: t( 'freshmail' , $response[ 'errors' ][ 0 ][ 'message' ] ) );
+            } else {
+                Craft :: $app -> getSession() -> setNotice( 'freshmailAction' , Craft :: t( 'freshmail' , "Subscriber added") );
             }
             
             Craft :: $app -> getSession() -> setNotice( 'freshmailAction' , Craft :: t( 'freshmail' , "Subscriber added") );
