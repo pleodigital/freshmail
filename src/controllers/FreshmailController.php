@@ -88,12 +88,10 @@ class FreshmailController extends Controller
 		    $response = $this -> doRequest('subscriber/add', $addEmailArray );
 
             if( isset( $response[ 'errors' ] ) ) {
-                Craft :: $app -> getSession() -> setError( Craft :: t( 'freshmail' , $response[ 'errors' ][ 0 ][ 'message' ] ) );
+                Craft :: $app -> getSession() -> setError( Craft :: t( 'freshmail' , 'error_' . $response[ 'errors' ][ 0 ][ 'code' ] ) );
             } else {
                 Craft :: $app -> getSession() -> setNotice( 'freshmailAction' , Craft :: t( 'freshmail' , "Subscriber added") );
             }
-            
-            Craft :: $app -> getSession() -> setNotice( 'freshmailAction' , Craft :: t( 'freshmail' , "Subscriber added") );
 
 		} catch (Exception $e) {
             Craft :: $app -> getSession() -> setError( Craft :: t( 'freshmail' , 'Connection with freshmail went wrong. Check plugin settings.' ));

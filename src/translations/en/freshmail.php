@@ -9,17 +9,16 @@
  */
 
 /**
- * Freshmail en Translation
- *
- * Returns an array with the string to be translated (as passed to `Craft::t('freshmail', '...')`) as
- * the key, and the translation as the value.
- *
- * http://www.yiiframework.com/doc-2.0/guide-tutorial-i18n.html
  *
  * @author    Pleo Digital
  * @package   Freshmail
- * @since     1.0.0
+ * @since     1.0.5
  */
 return [
-    'Freshmail plugin loaded' => 'Freshmail plugin loaded',
+    'Freshmail plugin loaded' => 'A freshmail plugin has been loaded',
+    'error_1301' => "The email address is incorrect",
+    'error_1302' => "The subscription list does not exist or there is no list hash",
+    'error_1303' => "One or more additional fields are incorrect",
+    'error_1304' => "The subscriber already exists in this subscription list and has the status of Active or Activated",
+    'error_1305' => "An attempt was made to give the subscriber status incorrect"
 ];
