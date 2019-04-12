@@ -19,6 +19,6 @@ return [
     'error_1301' => "Adres email jest niepoprawny",
     'error_1302' => "Lista subskrypcyjna nie istnieje lub brak hash'a listy",
     'error_1303' => "Jedno lub więcej pól dodatkowych jest niepoprawne",
-    'error_1304' => "Subskrybent już istnieje w tej liście subskrypcyjnej i ma status Aktywny lub Do aktywacji",
+    'error_1304' => "Już jesteś na naszej liście mejlingowej!",
     'error_1305' => "Próbowano nadać niepoprawny status subskrybenta"
 ];
