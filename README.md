@@ -30,7 +30,10 @@ In the Control Panel, go to Settings → Plugins -> Freshmail and enter your Fre
 
 ## Using Freshmail
 
-{{ freshmailInput('p2sis8er7d', { inputClass: 'email-input email-sub', placeholder: item.inputPlacecholder }) }}
+        {% set subscriptionList = "p2sis8er7d" %}
+        {% set inputClass = "email-input email-sub" %}
+        {% set placeholder = "Input placeholder" %}
+        {{ freshmailInput( subscriptionList , { inputClass: inputClass, placeholder: placeholder }) }}
 
 ## Freshmail Roadmap
 
