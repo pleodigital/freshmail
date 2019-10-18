@@ -2,8 +2,6 @@
 
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
-
 ## v1.0.0 - 2019-03-27
 ### Added
 - Initial release
@@ -26,9 +24,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Notification translations for languages: DE / EN / FR / PL
 
 
-## v1.0.6 - 2019-04-12
-### Added
-- Changelog.md
-- License.md
-- Plugin published in Craft CMS Plugin Store
+## v1.0.7 - 2019-10-18
+### Changed
+- Changelog.md actualization 
+- License.md - plugin published in MIT license
+- Readme.md - plugin "How To" released
 
+### Added
+- Plugin published in Craft CMS Plugin Store
+- Plugin new logo

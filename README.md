@@ -2,8 +2,6 @@
 
 Connect your freshmail account to Craft CMS.
 
-![Screenshot](resources/img/plugin-logo.png)
-
 ## Requirements
 
 This plugin requires Craft CMS 3.0.0-beta.23 or later.
@@ -24,20 +22,18 @@ To install the plugin, follow these instructions.
 
 ## Freshmail Overview
 
--Insert text here-
+This plugin allows quick and easy integration with the Freshmail tool. All you have to do is complete your access data and display the field responsible for entering your email address.
 
 ## Configuring Freshmail
 
--Insert text here-
+In the Control Panel, go to Settings → Plugins -> Freshmail and enter your Freshmail Api Key and Freshmail Secret Key. 
 
 ## Using Freshmail
 
--Insert text here-
+{{ freshmailInput('p2sis8er7d', { inputClass: 'email-input email-sub', placeholder: item.inputPlacecholder }) }}
 
 ## Freshmail Roadmap
 
-Some things to do, and ideas for potential features:
-
-* Release it
+If you have an idea how to develop this plugin, create PR and send it to us. Thanks!
 
 Brought to you by [Pleo Digital](https://pleodigital.com/)
