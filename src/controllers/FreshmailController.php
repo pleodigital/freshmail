@@ -57,7 +57,7 @@ class FreshmailController extends Controller
      *         The actions must be in 'kebab-case'
      * @access protected
      */
-    protected $allowAnonymous = ['index'];
+    protected $allowAnonymous = ['index', 'ajax'];
 
     // Public Methods
     // =========================================================================
@@ -83,7 +83,7 @@ class FreshmailController extends Controller
 			'list' => $request -> getBodyParam('freshmailListId'),
 			'state' => 1
         );
-        
+
         try {
 		    $response = $this -> doRequest('subscriber/add', $addEmailArray );
 
@@ -95,6 +95,28 @@ class FreshmailController extends Controller
 
 		} catch (Exception $e) {
             Craft :: $app -> getSession() -> setError( Craft :: t( 'freshmail' , 'Connection with freshmail went wrong. Check plugin settings.' ));
+		}
+
+    }
+    public function actionAjax()
+    {
+        $request = Craft :: $app -> getRequest();
+        $plugin = Freshmail :: getInstance();
+        $settings = $plugin -> getSettings();
+
+		$this -> setApiKey( $settings-> apiKey );
+        $this -> setApiSecret( $settings-> apiSecretKey );
+
+        $addEmailArray = array(
+			'email' => $request -> getBodyParam('freshmailEmail'),
+			'list' => $request -> getBodyParam('freshmailListId'),
+			'state' => 1
+        );
+        try {
+		    $response = $this -> doRequest('subscriber/add', $addEmailArray );
+		    return $response;
+		} catch (Exception $e) {
+            return 'Connection with freshmail went wrong. Check plugin settings.';
 		}
 
     }
