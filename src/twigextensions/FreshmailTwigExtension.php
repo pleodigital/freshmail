@@ -80,7 +80,7 @@ class FreshmailTwigExtension extends \Twig_Extension
         $inputClass = $options && isset( $options['inputClass'] ) ? $options['inputClass'] : '';
         $inputPlaceholder = $options && isset( $options['placeholder'] ) ? $options['placeholder'] : '';
 
-        return TemplateHelper::raw('<input type="hidden" name="action" value="' . $action . '"><input type="hidden" name="' . $listIdFormName . '" value="' . $listId . '"><input type="text" name="' . $emailIdFormName . '" class="' . $inputClass . '" placeholder="' . $inputPlaceholder . '">');
+        return TemplateHelper::raw('<input type="hidden" name="action" value="' . $action . '"><input type="hidden" name="' . $listIdFormName . '" value="' . $listId . '"><input type="email" name="' . $emailIdFormName . '" class="' . $inputClass . '" placeholder="' . $inputPlaceholder . '">');
     
     }
 
