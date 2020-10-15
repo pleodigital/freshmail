@@ -40,7 +40,7 @@ class FreshmailController extends Controller
 
 	private $strApiSecret   = null;
     private $strApiKey      = null;
-    private $response    = null;
+    private $res    = null;
     private $rawResponse = null;
     private $httpCode    = null;
     private $errors = array();
@@ -171,11 +171,11 @@ class FreshmailController extends Controller
             }
         }
 
-        if ( is_array( $this -> response ) == false ) {
+        if ( is_array( $this -> res ) == false ) {
             throw new Exception('Connection error - curl error message: '.curl_error($resCurl).' ('.curl_errno($resCurl).')');
         }
 
-        return $this -> response;
+        return $this -> res;
 
     }
 
@@ -189,11 +189,11 @@ class FreshmailController extends Controller
             $filePatern = '/filename\=\"([a-zA-Z0-9\.]+)\"/';
             preg_match($filePatern, $header, $fileName);
             file_put_contents(self::defaultFilePath.$fileName[1], substr($this->rawResponse, $header_size));
-            $this->response = array('path' =>self::defaultFilePath.$fileName[1]);
+            $this->res = array('path' =>self::defaultFilePath.$fileName[1]);
         } else {
-            $this->response = json_decode( substr($this->rawResponse, $header_size), true );
+            $this->res = json_decode( substr($this->rawResponse, $header_size), true );
         }
-        return $this->response;
+        return $this->res;
     }
 
     private function getHttpCode()
