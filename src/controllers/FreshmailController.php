@@ -163,10 +163,10 @@ class FreshmailController extends Controller
         $this -> _getResponseFromHeaders($resCurl);
 
         if ( $this -> httpCode != 200 ) {
-            $this -> errors = $this -> response['errors'];
+            $this -> errors = $this -> res['errors'];
             if ( is_array( $this -> errors ) ) {
                 foreach ( $this -> errors as $arrError ) {
-                   //echo '<pre>'.print_r( $arrError ,TRUE) . '</pre>';
+                //    echo '<pre>'.print_r( $arrError ,TRUE) . '</pre>';
                 }
             }
         }
