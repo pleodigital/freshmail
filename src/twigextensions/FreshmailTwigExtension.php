@@ -12,6 +12,10 @@ namespace pleodigitalfreshmail\freshmail\twigextensions;
 
 use pleodigitalfreshmail\freshmail\Freshmail;
 use craft\helpers\Template as TemplateHelper;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFilter;
+use Twig\TwigFunction;
+use Twig\TwigTest;
 
 use Craft;
 
@@ -26,7 +30,7 @@ use Craft;
  * @package   Freshmail
  * @since     1.0.0
  */
-class FreshmailTwigExtension extends \Twig_Extension
+class FreshmailTwigExtension extends AbstractExtension
 {
     // Public Methods
     // =========================================================================
@@ -65,7 +69,7 @@ class FreshmailTwigExtension extends \Twig_Extension
     public function getFunctions()
     {
         return [
-            new \Twig_SimpleFunction('freshmailInput', [$this, 'freshmailInputFunction']),
+            new TwigFunction('freshmailInput', [$this, 'freshmailInputFunction']),
         ];
     }
 
