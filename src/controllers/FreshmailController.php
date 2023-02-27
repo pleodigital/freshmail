@@ -57,7 +57,7 @@ class FreshmailController extends Controller
      *         The actions must be in 'kebab-case'
      * @access protected
      */
-    protected $allowAnonymous = ['index', 'ajax'];
+    protected array|bool|int $allowAnonymous = ['index', 'ajax'];
 
     // Public Methods
     // =========================================================================
@@ -90,7 +90,7 @@ class FreshmailController extends Controller
             if( isset( $response[ 'errors' ] ) ) {
                 Craft :: $app -> getSession() -> setError( Craft :: t( 'freshmail' , 'error_' . $response[ 'errors' ][ 0 ][ 'code' ] ) );
             } else {
-                Craft :: $app -> getSession() -> setNotice( 'freshmailAction' , Craft :: t( 'freshmail' , "Subscriber added") );
+                Craft :: $app -> getSession() -> setNotice( Craft :: t( 'freshmail' , "Subscriber added") );
             }
 
 		} catch (Exception $e) {
@@ -185,7 +185,7 @@ class FreshmailController extends Controller
         $header = substr($this->rawResponse, 0, $header_size);
         $TypePatern = '/Content-Type:\s*([a-z-Z\/]*)\s/';
         preg_match($TypePatern, $header, $responseType);
-        if(strtolower($responseType[1]) == 'application/zip') {
+        if(sizeof($responseType) > 0 && strtolower($responseType[1]) == 'application/zip') {
             $filePatern = '/filename\=\"([a-zA-Z0-9\.]+)\"/';
             preg_match($filePatern, $header, $fileName);
             file_put_contents(self::defaultFilePath.$fileName[1], substr($this->rawResponse, $header_size));
